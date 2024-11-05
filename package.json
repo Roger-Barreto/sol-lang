@@ -1,0 +1,23 @@
+{
+  "name": "sol-lang",
+  "version": "1.0.0",
+  "description": "Fictional programming language to learn about compilers",
+  "scripts": {
+    "start": "ts-node ./main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ropoko/sol-lang.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ropoko/sol-lang/issues"
+  },
+  "homepage": "https://github.com/ropoko/sol-lang#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
