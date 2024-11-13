@@ -39,6 +39,8 @@ export enum TokenType {
 
 	OpenParen, // (
 	CloseParen, // )
+	Comma, // ,
+  Assign, // =
 }
 
 /**
