@@ -1,5 +1,6 @@
 import fs from "fs";
 import { tokenize } from "./src/lexer";
+import Parser from "./src/parser";
 
 if (process.argv.length < 3) {
 	console.error("Please provide a file path");
@@ -15,5 +16,9 @@ if (!filePath) {
 
 const sourceCode = fs.readFileSync(filePath, "utf-8");
 
-const tokens = tokenize(sourceCode);
-console.log("Tokens:", tokens);
+console.log("Source Code:", sourceCode);
+
+
+const parser = new Parser();
+const ast = parser.produceAST(sourceCode);
+console.log("AST:", ast);

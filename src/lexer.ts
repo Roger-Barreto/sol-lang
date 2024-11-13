@@ -1,5 +1,5 @@
 import { Token, TokenType, KEYWORDS } from "../types/tokens";
-import { token, isalpha, isskippable, isNumber } from "../utils/tokens";
+import { token, isalpha, isskippable } from "../utils/tokens";
 
 export function tokenize(sourceCode: string): Token[] {
 	const tokens = new Array<Token>();
@@ -7,7 +7,6 @@ export function tokenize(sourceCode: string): Token[] {
 
 
 	while (src.length > 0) {
-
 		if (src[0] === "(") {
 			tokens.push(token(src.shift(), TokenType.OpenParen));
 		} else if (src[0] === ")") {
@@ -32,6 +31,8 @@ export function tokenize(sourceCode: string): Token[] {
 			tokens.push(token("==", TokenType.Equals));
 			src.shift();
 			src.shift();
+		} else if (src[0] === "=") {
+			tokens.push(token(src.shift(), TokenType.Assign));
 		} else if (src[0] === "~" && src[1] === "=") {
 			tokens.push(token("~=", TokenType.NotEqual));
 			src.shift();
