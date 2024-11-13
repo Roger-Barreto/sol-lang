@@ -5,9 +5,28 @@ export function tokenize(sourceCode: string): Token[] {
 	const tokens = new Array<Token>();
 	const src = sourceCode.split("");
 
-
 	while (src.length > 0) {
-		if (src[0] === "(") {
+		if (src[0] === "f" && src[1] === "u" && src[2] === "n" && src[3] === "c" && src[4] === "t" && src[5] === "i" && src[6] === "o" && src[7] === "n") {
+			tokens.push(token("function", TokenType.Function));
+			src.shift(); // f
+			src.shift(); // u
+			src.shift(); // n
+			src.shift(); // c
+			src.shift(); // t
+			src.shift(); // i
+			src.shift(); // o
+			src.shift(); // n
+		}
+		else if (src[0] === "r" && src[1] === "e" && src[2] === "t" && src[3] === "u" && src[4] === "r" && src[5] === "n") {
+			tokens.push(token("return", TokenType.Return));
+			src.shift(); // r
+			src.shift(); // e
+			src.shift(); // t
+			src.shift(); // u
+			src.shift(); // r
+			src.shift(); // n
+		}
+		else if (src[0] === "(") {
 			tokens.push(token(src.shift(), TokenType.OpenParen));
 		} else if (src[0] === ")") {
 			tokens.push(token(src.shift(), TokenType.CloseParen));
@@ -25,6 +44,8 @@ export function tokenize(sourceCode: string): Token[] {
 			tokens.push(token(src.shift(), TokenType.Divide));
 		} else if (src[0] === ";") {
 			tokens.push(token(src.shift(), TokenType.Semicolon));
+		} else if (src[0] === ",") {
+			tokens.push(token(src.shift(), TokenType.Comma));
 		}
 
 		else if (src[0] === "=" && src[1] === "=") {

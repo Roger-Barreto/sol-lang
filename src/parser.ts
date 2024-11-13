@@ -272,14 +272,14 @@ export default class Parser {
   }
 
   private parse_block(): Stmt[] {
-    this.expect(TokenType.OpenBracket, "Expected '{' to start block");
+    this.expect(TokenType.OpenBracket, "Expected '[' to start block");
     const statements: Stmt[] = [];
 
     while (this.at().type !== TokenType.CloseBracket && this.not_eof()) {
       statements.push(this.parse_stmt());
     }
 
-    this.expect(TokenType.CloseBracket, "Expected '}' to end block");
+    this.expect(TokenType.CloseBracket, "Expected ']' to end block");
     return statements;
   }
 
